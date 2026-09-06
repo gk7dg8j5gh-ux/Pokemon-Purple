@@ -1,0 +1,211 @@
+#pragma once
+#include <stdint.h>
+
+#define POKEMON_COUNT 151
+#define MOVE_SLOTS 4
+
+typedef enum {
+    POKEMON_BULBASAUR = 1,
+    POKEMON_IVYSAUR = 2,
+    POKEMON_VENUSAUR = 3,
+    POKEMON_CHARMANDER = 4,
+    POKEMON_CHARMELEON = 5,
+    POKEMON_CHARIZARD = 6,
+    POKEMON_SQUIRTLE = 7,
+    POKEMON_WARTORTLE = 8,
+    POKEMON_BLASTOISE = 9,
+    POKEMON_CATERPIE = 10,
+    POKEMON_METAPOD = 11,
+    POKEMON_BUTTERFREE = 12,
+    POKEMON_WEEDLE = 13,
+    POKEMON_KAKUNA = 14,
+    POKEMON_BEEDRILL = 15,
+    POKEMON_PIDGEY = 16,
+    POKEMON_PIDGEOTTO = 17,
+    POKEMON_PIDGEOT = 18,
+    POKEMON_RATTATA = 19,
+    POKEMON_RATICATE = 20,
+    POKEMON_SPEAROW = 21,
+    POKEMON_FEAROW = 22,
+    POKEMON_EKANS = 23,
+    POKEMON_ARBOK = 24,
+    POKEMON_PIKACHU = 25,
+    POKEMON_RAICHU = 26,
+    POKEMON_SANDSHREW = 27,
+    POKEMON_SANDSLASH = 28,
+    POKEMON_NIDORANF = 29,
+    POKEMON_NIDORINA = 30,
+    POKEMON_NIDOQUEEN = 31,
+    POKEMON_NIDORANM = 32,
+    POKEMON_NIDORINO = 33,
+    POKEMON_NIDOKING = 34,
+    POKEMON_CLEFAIRY = 35,
+    POKEMON_CLEFABLE = 36,
+    POKEMON_VULPIX = 37,
+    POKEMON_NINETALES = 38,
+    POKEMON_JIGGLYPUFF = 39,
+    POKEMON_WIGGLYTUFF = 40,
+    POKEMON_ZUBAT = 41,
+    POKEMON_GOLBAT = 42,
+    POKEMON_ODDISH = 43,
+    POKEMON_GLOOM = 44,
+    POKEMON_VILEPLUME = 45,
+    POKEMON_PARAS = 46,
+    POKEMON_PARASECT = 47,
+    POKEMON_VENONAT = 48,
+    POKEMON_VENOMOTH = 49,
+    POKEMON_DIGLETT = 50,
+    POKEMON_DUGTRIO = 51,
+    POKEMON_MEOWTH = 52,
+    POKEMON_PERSIAN = 53,
+    POKEMON_PSYDUCK = 54,
+    POKEMON_GOLDUCK = 55,
+    POKEMON_MANKEY = 56,
+    POKEMON_PRIMEAPE = 57,
+    POKEMON_GROWLITHE = 58,
+    POKEMON_ARCANINE = 59,
+    POKEMON_POLIWAG = 60,
+    POKEMON_POLIWHIRL = 61,
+    POKEMON_POLIWRATH = 62,
+    POKEMON_ABRA = 63,
+    POKEMON_KADABRA = 64,
+    POKEMON_ALAKAZAM = 65,
+    POKEMON_MACHOP = 66,
+    POKEMON_MACHOKE = 67,
+    POKEMON_MACHAMP = 68,
+    POKEMON_BELLSPROUT = 69,
+    POKEMON_WEEPINBELL = 70,
+    POKEMON_VICTREEBEL = 71,
+    POKEMON_TENTACOOL = 72,
+    POKEMON_TENTACRUEL = 73,
+    POKEMON_GEODUDE = 74,
+    POKEMON_GRAVELER = 75,
+    POKEMON_GOLEM = 76,
+    POKEMON_PONYTA = 77,
+    POKEMON_RAPIDASH = 78,
+    POKEMON_SLOWPOKE = 79,
+    POKEMON_SLOWBRO = 80,
+    POKEMON_MAGNEMITE = 81,
+    POKEMON_MAGNETON = 82,
+    POKEMON_FARFETCHD = 83,
+    POKEMON_DODUO = 84,
+    POKEMON_DODRIO = 85,
+    POKEMON_SEEL = 86,
+    POKEMON_DEWGONG = 87,
+    POKEMON_GRIMER = 88,
+    POKEMON_MUK = 89,
+    POKEMON_SHELLDER = 90,
+    POKEMON_CLOYSTER = 91,
+    POKEMON_GASTLY = 92,
+    POKEMON_HAUNTER = 93,
+    POKEMON_GENGAR = 94,
+    POKEMON_ONIX = 95,
+    POKEMON_DROWZEE = 96,
+    POKEMON_HYPNO = 97,
+    POKEMON_KRABBY = 98,
+    POKEMON_KINGLER = 99,
+    POKEMON_VOLTORB = 100,
+    POKEMON_ELECTRODE = 101,
+    POKEMON_EXEGGCUTE = 102,
+    POKEMON_EXEGGUTOR = 103,
+    POKEMON_CUBONE = 104,
+    POKEMON_MAROWAK = 105,
+    POKEMON_HITMONLEE = 106,
+    POKEMON_HITMONCHAN = 107,
+    POKEMON_LICKITUNG = 108,
+    POKEMON_KOFFING = 109,
+    POKEMON_WEEZING = 110,
+    POKEMON_RHYHORN = 111,
+    POKEMON_RHYDON = 112,
+    POKEMON_CHANSEY = 113,
+    POKEMON_TANGELA = 114,
+    POKEMON_KANGASKHAN = 115,
+    POKEMON_HORSEA = 116,
+    POKEMON_SEADRA = 117,
+    POKEMON_GOLDEEN = 118,
+    POKEMON_SEAKING = 119,
+    POKEMON_STARYU = 120,
+    POKEMON_STARMIE = 121,
+    POKEMON_MRMIME = 122,
+    POKEMON_SCYTHER = 123,
+    POKEMON_JYNX = 124,
+    POKEMON_ELECTABUZZ = 125,
+    POKEMON_MAGMAR = 126,
+    POKEMON_PINSIR = 127,
+    POKEMON_TAUROS = 128,
+    POKEMON_MAGIKARP = 129,
+    POKEMON_GYARADOS = 130,
+    POKEMON_LAPRAS = 131,
+    POKEMON_DITTO = 132,
+    POKEMON_EEVEE = 133,
+    POKEMON_VAPOREON = 134,
+    POKEMON_JOLTEON = 135,
+    POKEMON_FLAREON = 136,
+    POKEMON_PORYGON = 137,
+    POKEMON_OMANYTE = 138,
+    POKEMON_OMASTAR = 139,
+    POKEMON_KABUTO = 140,
+    POKEMON_KABUTOPS = 141,
+    POKEMON_AERODACTYL = 142,
+    POKEMON_SNORLAX = 143,
+    POKEMON_ARTICUNO = 144,
+    POKEMON_ZAPDOS = 145,
+    POKEMON_MOLTRES = 146,
+    POKEMON_DRATINI = 147,
+    POKEMON_DRAGONAIR = 148,
+    POKEMON_DRAGONITE = 149,
+    POKEMON_MEWTWO = 150,
+    POKEMON_MEW = 151,
+} PokemonSpecies;
+
+typedef enum {
+    TYPE_NORMAL,
+    TYPE_FIRE,
+    TYPE_WATER,
+    TYPE_GRASS,
+    TYPE_ELECTRIC,
+    TYPE_FLYING,
+    TYPE_POISON,
+    TYPE_GROUND,
+    TYPE_ROCK,
+    TYPE_PSYCHIC,
+    TYPE_BUG,
+    TYPE_FIGHTING,
+    TYPE_GHOST,
+    TYPE_ICE,
+    TYPE_DRAGON
+} PokemonType;
+
+typedef struct {
+    const char* name;
+    PokemonType type;
+    uint8_t power;
+    uint8_t accuracy;
+} Move;
+
+typedef struct {
+    PokemonSpecies species;
+    const char* name;
+    uint8_t level;
+    int16_t current_hp;
+    int16_t max_hp;
+    uint8_t attack;
+    uint8_t defense;
+    uint8_t speed;
+    Move moves[MOVE_SLOTS];
+} Pokemon;
+
+extern const char* const pokemon_names[POKEMON_COUNT + 1];
+extern const Move move_tackle;
+extern const Move move_scratch;
+extern const Move move_growl;
+extern const Move move_ember;
+extern const Move move_water_gun;
+extern const Move move_vine_whip;
+extern const Move move_gust;
+extern const Move move_quick_attack;
+extern const Move move_bug_bite;
+extern const Move move_thundershock;
+
+Pokemon pokemon_create(PokemonSpecies species, uint8_t level);
+int pokemon_calculate_damage(const Pokemon* attacker, const Pokemon* defender, const Move* move);
